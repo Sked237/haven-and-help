@@ -2,7 +2,7 @@ import { Home, Mail, Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const whatsappNumber = "+33612345678"; // Numéro WhatsApp pour support
+  const whatsappNumber = "+237621721403"; // Numéro WhatsApp pour support
   const whatsappMessage = encodeURIComponent("Bonjour, j'ai besoin d'aide avec Haven & Help");
 
   return (
@@ -84,13 +84,13 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:contact@havenhelp.fr" className="hover:text-foreground transition-smooth">
-                  contact@havenhelp.fr
+                <a href="mailto:contact@havenhelp.cm" className="hover:text-foreground transition-smooth">
+                  contact@havenhelp.cm
                 </a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <span>+33 1 23 45 67 89</span>
+                <span>+237 621 72 14 03</span>
               </li>
               <li>
                 <a

@@ -53,7 +53,7 @@ const ServiceDetail = () => {
     setSelectedDate(undefined);
   };
 
-  const whatsappNumber = "+33612345678";
+  const whatsappNumber = "+237621721403";
   const whatsappMessage = encodeURIComponent(
     `Bonjour, je souhaite obtenir plus d'informations sur le service "${service.title}"`
   );
@@ -108,7 +108,7 @@ const ServiceDetail = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-3xl font-bold text-secondary">{service.price}€</div>
+                    <div className="text-3xl font-bold text-secondary">{service.price} XAF</div>
                     <div className="text-sm text-muted-foreground">par {service.priceUnit}</div>
                   </div>
                 </div>
@@ -154,11 +154,11 @@ const ServiceDetail = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                     <Phone className="w-5 h-5 text-secondary" />
-                    <span>+33 6 12 34 56 78</span>
+                    <span>+237 621 72 14 03</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                     <Mail className="w-5 h-5 text-secondary" />
-                    <span>contact@service.fr</span>
+                    <span>contact@service.cm</span>
                   </div>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}

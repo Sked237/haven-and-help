@@ -237,7 +237,7 @@ const PropertyDetail = () => {
             <Card className="sticky top-24 shadow-elegant">
               <CardContent className="p-6">
                 <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-3xl font-bold text-primary">{property.price}€</span>
+                  <span className="text-3xl font-bold text-primary">{property.price} XAF</span>
                   <span className="text-muted-foreground">/ nuit</span>
                 </div>
 
@@ -268,14 +268,14 @@ const PropertyDetail = () => {
                   <div className="space-y-2 mb-6 p-4 bg-muted rounded-lg">
                     <div className="flex justify-between text-sm">
                       <span>
-                        {property.price}€ × {calculateNights()} nuit{calculateNights() > 1 ? "s" : ""}
+                        {property.price} XAF × {calculateNights()} nuit{calculateNights() > 1 ? "s" : ""}
                       </span>
-                      <span>{totalPrice}€</span>
+                      <span>{totalPrice} XAF</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between font-semibold">
                       <span>Total</span>
-                      <span className="text-primary">{totalPrice}€</span>
+                      <span className="text-primary">{totalPrice} XAF</span>
                     </div>
                   </div>
                 )}

@@ -22,7 +22,7 @@ const Services = () => {
   const [searchParams] = useSearchParams();
   const [services, setServices] = useState(servicesData);
   const [searchQuery, setSearchQuery] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 50000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [minRating, setMinRating] = useState(0);
 
@@ -88,13 +88,13 @@ const Services = () => {
           <Slider
             value={priceRange}
             onValueChange={setPriceRange}
-            max={100}
-            step={5}
+            max={50000}
+            step={2500}
             className="w-full"
           />
           <div className="flex items-center justify-between text-sm">
-            <span>{priceRange[0]}€/h</span>
-            <span>{priceRange[1]}€/h</span>
+            <span>{priceRange[0]} XAF/h</span>
+            <span>{priceRange[1]} XAF/h</span>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ const Services = () => {
         variant="outline"
         className="w-full"
         onClick={() => {
-          setPriceRange([0, 100]);
+          setPriceRange([0, 50000]);
           setSelectedCategories([]);
           setMinRating(0);
         }}
@@ -232,7 +232,7 @@ const Services = () => {
                   variant="outline"
                   className="mt-4"
                   onClick={() => {
-                    setPriceRange([0, 100]);
+                    setPriceRange([0, 50000]);
                     setSelectedCategories([]);
                     setMinRating(0);
                     setSearchQuery("");

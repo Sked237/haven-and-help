@@ -21,7 +21,7 @@ import propertiesData from "@/data/properties.json";
 const Properties = () => {
   const [searchParams] = useSearchParams();
   const [properties, setProperties] = useState(propertiesData);
-  const [priceRange, setPriceRange] = useState([0, 500]);
+  const [priceRange, setPriceRange] = useState([0, 100000]);
   const [selectedType, setSelectedType] = useState<string[]>([]);
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
 
@@ -88,13 +88,13 @@ const Properties = () => {
           <Slider
             value={priceRange}
             onValueChange={setPriceRange}
-            max={500}
-            step={10}
+            max={100000}
+            step={5000}
             className="w-full"
           />
           <div className="flex items-center justify-between text-sm">
-            <span>{priceRange[0]}€</span>
-            <span>{priceRange[1]}€</span>
+            <span>{priceRange[0]} XAF</span>
+            <span>{priceRange[1]} XAF</span>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ const Properties = () => {
         variant="outline"
         className="w-full"
         onClick={() => {
-          setPriceRange([0, 500]);
+          setPriceRange([0, 100000]);
           setSelectedType([]);
           setSelectedAmenities([]);
         }}
@@ -218,7 +218,7 @@ const Properties = () => {
                   variant="outline"
                   className="mt-4"
                   onClick={() => {
-                    setPriceRange([0, 500]);
+                    setPriceRange([0, 100000]);
                     setSelectedType([]);
                     setSelectedAmenities([]);
                   }}
