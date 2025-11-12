@@ -1,7 +1,9 @@
-import { Home, Building2, Wrench, Star, Menu, X } from "lucide-react";
+import { Building2, Wrench, Star, Menu, X } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import ThemeSelector from "@/components/ThemeSelector";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,17 +13,20 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <Home className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+          <NavLink to="/" className="flex items-center space-x-3 group">
+            <img 
+              src={logo} 
+              alt="Haven & Help Logo" 
+              className="w-12 h-12 rounded-lg transition-transform group-hover:scale-110"
+            />
+            <span className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent transition-all group-hover:tracking-wide">
               Haven & Help
             </span>
           </NavLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
+            <ThemeSelector />
             <NavLink
               to="/logements"
               className="px-4 py-2 rounded-lg transition-smooth hover:bg-muted"
@@ -55,14 +60,16 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeSelector />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

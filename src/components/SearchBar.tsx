@@ -17,13 +17,30 @@ const SearchBar = () => {
   const [priceMax, setPriceMax] = useState("");
   const [propertyType, setPropertyType] = useState("");
 
+  const normalizeString = (str: string) => {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  };
+
   const handleSearch = () => {
     const params = new URLSearchParams();
-    if (location) params.set("location", location);
+    if (location) {
+      const normalized = normalizeString(location);
+      params.set("location", normalized);
+    }
     if (priceMax) params.set("maxPrice", priceMax);
     if (propertyType) params.set("type", propertyType);
     
     navigate(`/logements?${params.toString()}`);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
@@ -36,9 +53,10 @@ const SearchBar = () => {
             Destination
           </label>
           <Input
-            placeholder="Paris, Lyon, Nice..."
+            placeholder="Yaoundé, Douala, Bafoussam..."
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            onKeyPress={handleKeyPress}
             className="border-muted"
           />
         </div>
@@ -70,9 +88,10 @@ const SearchBar = () => {
           </label>
           <Input
             type="number"
-            placeholder="200"
+            placeholder="50000"
             value={priceMax}
             onChange={(e) => setPriceMax(e.target.value)}
+            onKeyPress={handleKeyPress}
             className="border-muted"
           />
         </div>
